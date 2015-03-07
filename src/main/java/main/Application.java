@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"controllers", "main"})
+@ComponentScan({"controllers", "main", "db.mongo"})
 public class Application {
 
     public static void main(String[] args) {
