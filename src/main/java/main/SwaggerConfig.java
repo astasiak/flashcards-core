@@ -1,4 +1,4 @@
-package hello;
+package main;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +23,7 @@ public class SwaggerConfig {
 	public SwaggerSpringMvcPlugin customImplementation() {
 		return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
 				.apiInfo(apiInfo())
-				.includePatterns("/greeting");
+				.includePatterns("/greeting","/users");
 	}
 
 	private ApiInfo apiInfo() {

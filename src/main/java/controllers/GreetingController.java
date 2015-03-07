@@ -1,9 +1,11 @@
-package hello;
+package controllers;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.util.concurrent.atomic.AtomicLong;
+
+import model.Greeting;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+//@RequestMapping(value="/greeting")
 public class GreetingController {
 
     private static final String template = "Hello, %s!";

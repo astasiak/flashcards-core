@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>astasiak</groupId>
-	<artifactId>spring-boot-rest</artifactId>
+	<artifactId>flashcards-core</artifactId>
 	<version>0.0.1</version>
 
 	<parent>
