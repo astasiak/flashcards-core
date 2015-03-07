@@ -23,7 +23,7 @@ public class SwaggerConfig {
 	public SwaggerSpringMvcPlugin customImplementation() {
 		return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
 				.apiInfo(apiInfo())
-				.includePatterns("/greeting","/users");
+				.includePatterns("/users","/users/.*","/sets","/sets/.*");
 	}
 
 	private ApiInfo apiInfo() {

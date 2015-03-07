@@ -2,7 +2,7 @@ package db.mongo;
 
 import java.util.List;
 
-import model.User;
+import model.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -10,29 +10,31 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import db.UsersDao;
+import db.SetsDao;
 
 @Repository
-public class UsersDaoMongoImpl implements UsersDao {
+public class SetsDaoMongoImpl implements SetsDao {
 
 	@Autowired
 	MongoOperations mongo;
 	
 	@Override
-	public List<User> listUsers() {
-		return mongo.findAll(User.class);
+	public List<Set> listSets() {
+		Query query = new Query();
+		query.fields().exclude("flashcards");
+		return mongo.find(query, Set.class);
 	}
 
 	@Override
-	public User createUser(User user) {
-		mongo.insert(user);
-		return user;
+	public Set createSet(Set set) {
+		mongo.insert(set);
+		return set;
 	}
 
 	@Override
-	public void deleteUser(String id) {
+	public void deleteSet(String id) {
 		Query query = new Query(Criteria.where("id").is(id));
-		mongo.remove(query, User.class);
+		mongo.remove(query, Set.class);
 	}
 
 }

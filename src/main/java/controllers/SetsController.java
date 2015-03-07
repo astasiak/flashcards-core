@@ -1,12 +1,12 @@
 package controllers;
 
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
-import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 
 import java.util.List;
 
-import model.User;
+import model.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,31 +15,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import db.UsersDao;
+import db.SetsDao;
 
 @RestController
-@RequestMapping(value="/users")
-public class UsersController {
+@RequestMapping(value="/sets")
+public class SetsController {
 	
 	@Autowired
-	private UsersDao usersDao;
+	private SetsDao setsDao;
 
     @ResponseBody
     @RequestMapping(method=GET)
-    public List<User> listUsers() {
-        return usersDao.listUsers();
+    public List<Set> listSets() {
+        return setsDao.listSets();
     }
 
     @ResponseBody
     @RequestMapping(method=POST)
-    public User postUser(@RequestBody User user) {
-    	return usersDao.createUser(user);
+    public Set postSet(@RequestBody Set set) {
+    	return setsDao.createSet(set);
     }
 
     @ResponseBody
     @RequestMapping(value="/{id}",method=DELETE)
-    public void deleteUser(@PathVariable("id") String id) {
+    public void deleteSet(@PathVariable("id") String id) {
     	// TODO: return 204
-    	usersDao.deleteUser(id);
+    	setsDao.deleteSet(id);
     }
 }
